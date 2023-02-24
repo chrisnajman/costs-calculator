@@ -25,6 +25,8 @@ This is so that:
 - if you make a mistake, you can delete and start again, and
 - if you forget a day, you can make a new entry then drag and drop it to the correct position.
 
+Note: I'm using the GBP pound symbol, but the calculator will work for any decimal-based currency.
+
 ## HTML
 
 - `template` used for dynamic (`table`) rows.
