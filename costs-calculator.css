@@ -1,7 +1,7 @@
 :root {
     --bgColour: rgb(245, 245, 250);
     --font-sans-serif: "Open Sans", sans-serif;
-    --font-mono: monospace, 'Courier New', Courier,
+    --font-mono: monospace, "Courier New", Courier;
     --font-normal: 400;
     --font-bold: 600;
     --horz-center: 0 auto;
@@ -139,9 +139,8 @@ a {
     gap: 2rem;
     margin: var(--horz-center);
     font-size: 1rem;
-    background: beige;
     background-color: white;
-    border: 1px solid rgb(63, 63, 56);
+    border: 1px solid currentColor;
     padding: 1rem;
 }
 
@@ -221,7 +220,7 @@ td {
 }
 
 tbody tr:nth-child(even) {
-    background-color: beige;
+    background-color: var(--bgColour);
 }
 
 .table-headings {
@@ -241,7 +240,6 @@ tbody tr:nth-child(even) {
     word-break: break-word;
     hyphens: auto;
 }
-
 
 /** Helpers **/
 .align-left {
