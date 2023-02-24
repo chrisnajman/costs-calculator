@@ -8,7 +8,7 @@ permalink: /index.html
 
 ## Description
 
-Add a date (required) then, optionally, add an amount spent for that day. I'd recommend that you do this every day -- even on the days you don't spend anything -- in order to get an accurate average.
+Add a date (required) then, optionally, add an amount spent for that day. I'd recommend that you do this every day - even on the days you don't spend anything - in order to get an accurate average.
 
 If you haven't spent anything, just add the date, then submit (with our without an accompanying note).
 
@@ -22,7 +22,7 @@ Additionally, you can:
 
 This is so that:
 
-- if you make a mistake you can delete and start again, and
+- if you make a mistake, you can delete and start again, and
 - if you forget a day, you can make a new entry, then drag it to the correct position.
 
 ## HTML
