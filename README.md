@@ -8,17 +8,19 @@ permalink: /index.html
 
 ## Description
 
-Add a date (required) then, optionally, add an amount spent for that day. I'd recommend that you do this every day - even on the days you don't spend anything - in order to get an accurate average.
+A simple calculator that tracks how much you spend per day over a number of days. An average spend is given for the period.
 
-If you haven't spent anything, just add the date, then submit (with our without an accompanying note).
+Add a date (required). I'd recommend that you do this every day - even on the days you don't spend anything - in order to get an accurate average.
 
-- If you try to submit a blank field in either of the number fields, you get an alert popup.
+If you haven't spent anything, just add the date, then submit the form.
+
+- If you try to submit a blank field in either of the number fields, you'll get an alert popup.
 - You cannot submit the form without specifying a date.
 
 Additionally, you can:
 
-- delete a row,
-- drag and drop a row.
+- delete an entry,
+- drag and drop an entry.
 
 This is so that:
 
