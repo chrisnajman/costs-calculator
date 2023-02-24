@@ -23,7 +23,7 @@ Additionally, you can:
 This is so that:
 
 - if you make a mistake, you can delete and start again, and
-- if you forget a day, you can make a new entry, then drag it to the correct position.
+- if you forget a day, you can make a new entry then drag and drop it to the correct position.
 
 ## HTML
 
