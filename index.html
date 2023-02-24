@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Costs Calculator</title>
+    <link rel="stylesheet" href="costs-calculator.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="costs-calculator.js" defer></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="heading-main">
+        <h1 class="page-heading">Costs Calculator</h1>
+        <p>Table rows can be rearranged, if required (drag and drop).</p>
+        <p>
+          Data is saved to local storage. Deleting all entries will clear local
+          storage.
+        </p>
+      </header>
+      <main class="content-main">
+        <form id="costs-form" class="costs-form">
+          <div>
+            <label for="date">Date <span class="required">*</span></label>
+            <input type="date" name="date" id="date" required data-input-date />
+          </div>
+          <fieldset>
+            <legend class="sr-only">Money spent</legend>
+            <div class="number">
+              <label for="pounds">&pound;</label>
+              <input
+                type="number"
+                name="pounds"
+                id="pounds"
+                class="input-number"
+                data-input-pounds
+                data-input-number
+                min="0"
+                value="0"
+              />
+            </div>
+            <div class="number">
+              <label for="pence">Pence</label>
+              <input
+                type="number"
+                name="pence"
+                id="pence"
+                class="input-number"
+                data-input-pence
+                data-input-number
+                min="0"
+                max="99"
+                value="0"
+              />
+            </div>
+          </fieldset>
+          <div>
+            <label for="notes">Notes</label>
+            <textarea name="notes" id="notes" data-input-notes></textarea>
+          </div>
+          <div>
+            <button class="submit-button">Submit</button>
+          </div>
+        </form>
+        <div role="region" aria-labelledby="caption01" tabindex="0">
+          <table id="costs-table">
+            <caption id="caption01">
+              Average spend per day &equals; &pound;<span data-average-spend
+                >0</span
+              >
+            </caption>
+            <thead>
+              <tr data-table-headings class="table-headings">
+                <th>Date</th>
+                <th>Notes</th>
+                <th class="remove-right-border">&pound;</th>
+                <td class="remove-left-border"></td>
+              </tr>
+            </thead>
+            <tbody data-rows class="tbody"></tbody>
+            <tfoot data-footer>
+              <tr class="table-headings">
+                <td></td>
+                <th>No. of days</th>
+                <th class="remove-right-border">Total</th>
+                <td class="remove-left-border"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td data-total-days>0</td>
+                <td data-total-costs class="remove-right-border">0</td>
+                <td class="remove-left-border"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <template id="costs-template">
+          <tr class="costs-row">
+            <td data-date></td>
+            <td data-notes class="notes align-left"></td>
+            <td data-daily-cost class="remove-right-border"></td>
+            <td class="remove-left-border">
+              <button data-button-delete class="remove-button">Delete</button>
+            </td>
+          </tr>
+        </template>
+      </main>
+      <footer class="page-footer">
+        <ul>
+          <li>
+            <a
+              href="https://github.com/chrisnajman/costs-calculator"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub repository</a
+            >
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
