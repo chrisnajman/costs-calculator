@@ -21,14 +21,22 @@
     <div class="page-wrapper">
       <header class="heading-main">
         <h1 class="page-heading">Costs Calculator</h1>
-        <p>Entries can be rearranged, if required (drag and drop).</p>
-        <p>
-          Entries are saved to local storage. (Deleting all entries will clear
-          local storage.)
-        </p>
-        <p>
-          If you don't spend anything, just select the date and submit the form.
-        </p>
+        <ul>
+          <li>Entries can be rearranged, if required (drag and drop).</li>
+          <li>
+            Entries are saved to local storage.
+            <ul>
+              <li>Deleting an entry will remove it from local storage.</li>
+            </ul>
+          </li>
+          <li>
+            If you don't spend anything, just select the date and submit the
+            form.
+            <ul>
+              <li>This will ensure that the correct average is calculated.</li>
+            </ul>
+          </li>
+        </ul>
       </header>
       <main class="content-main">
         <form id="costs-form" class="costs-form">
@@ -85,8 +93,7 @@
               <tr data-table-headings class="table-headings">
                 <th>Date</th>
                 <th>Notes</th>
-                <th class="remove-right-border">&pound;</th>
-                <td class="remove-left-border"></td>
+                <th class="last">&pound;</th>
               </tr>
             </thead>
             <tbody data-rows class="tbody"></tbody>
@@ -94,14 +101,12 @@
               <tr class="table-headings">
                 <td></td>
                 <th>No. of days</th>
-                <th class="remove-right-border">Total</th>
-                <td class="remove-left-border"></td>
+                <th class="last">Total</th>
               </tr>
               <tr>
                 <td></td>
                 <td data-total-days>0</td>
-                <td data-total-costs class="remove-right-border">0</td>
-                <td class="remove-left-border"></td>
+                <td data-total-costs class="last">0</td>
               </tr>
             </tfoot>
           </table>
@@ -110,10 +115,10 @@
         <template id="costs-template">
           <tr class="costs-row">
             <td data-date></td>
-            <td data-notes class="notes align-left"></td>
-            <td data-daily-cost class="remove-right-border"></td>
-            <td class="remove-left-border">
-              <button data-button-delete class="remove-button">Delete</button>
+            <td data-notes></td>
+            <td class="last daily-cost-button">
+              <span data-daily-cost></span
+              ><button data-button-delete class="remove-button">Delete</button>
             </td>
           </tr>
         </template>
