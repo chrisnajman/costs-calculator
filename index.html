@@ -20,7 +20,7 @@
   <body>
     <div class="page-wrapper">
       <header class="heading-main">
-        <h1 class="page-heading">Costs Calculator</h1>
+        <h1 class="page-heading">&pound; Costs Calculator</h1>
         <ul>
           <li>Entries can be rearranged, if required (drag and drop).</li>
           <li>
@@ -83,45 +83,41 @@
           </div>
         </form>
         <div role="region" aria-labelledby="caption01" tabindex="0">
-		 <table id="costs-table">
+          <table id="costs-table">
             <caption id="caption01" class="sr-only">
               Daily spend
             </caption>
             <thead>
               <tr class="table-headings">
                 <th>No. of days</th>
-                <th>Average spend per day (&pound;)</th>
-                <th>Total (&pound;)</th>
+                <th>Average spend per day</th>
+                <th>Total</th>
               </tr>
               <tr>
                 <td data-total-days>0</td>
                 <td><span data-average-spend>0</span></td>
                 <td data-total-costs>0</td>
               </tr>
-              <tr class="table-headings">
-                <td class="remove-border-right"></td>
-                <th class="entries">
-                  Entries
-                </th>
-                <td class="remove-border-left"></td>
+              <tr class="table-headings table-heading-entries">
+                <td></td>
+                <th class="entries">Entries</th>
+                <td></td>
               </tr>
-
               <tr data-table-headings class="table-headings">
                 <th>Date</th>
                 <th>Notes</th>
-                <th>(&pound;)</th>
+                <th>Spend</th>
               </tr>
             </thead>
             <tbody data-rows class="tbody"></tbody>
           </table>
         </div>
-
         <template id="costs-template">
           <tr class="costs-row">
             <td data-date></td>
             <td data-notes class="notes"></td>
             <td>
-              <span data-daily-cost></span
+              <span data-daily-cost class="daily-cost"></span
               ><button data-button-delete class="remove-button">Delete</button>
             </td>
           </tr>
