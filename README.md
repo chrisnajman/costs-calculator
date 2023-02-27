@@ -32,7 +32,7 @@ Note: I'm using the GBP pound symbol, but the calculator will work for any decim
 ## HTML
 
 - `template` used for dynamic (`table`) rows.
-- `table` has `max-height`.
+- The `table` container has a `max-height`. When this reached, scrollbars appear.
 
 ## Javascript
 
