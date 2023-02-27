@@ -197,10 +197,18 @@ textarea {
 [role="region"][aria-labelledby][tabindex] {
     overflow: auto;
     margin: var(--horz-center);
+    max-height: 18.75rem; /* 300px */
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 359px) {
+    [role="region"][aria-labelledby][tabindex] {
+        max-height: 25rem; /* 400px */
+    }
+}
+
+@media screen and (min-width: 767px) {
     [role="region"][aria-labelledby][tabindex] {
         margin-left: 0;
+        max-height: 37.5rem; /* 600px */
     }
 }
 
@@ -212,7 +220,6 @@ table {
 }
 
 caption {
-    caption-side: bottom;
     font-weight: var(--font-bold);
     padding: 0.5rem;
     text-transform: uppercase;

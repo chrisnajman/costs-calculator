@@ -83,32 +83,36 @@
           </div>
         </form>
         <div role="region" aria-labelledby="caption01" tabindex="0">
-          <table id="costs-table">
-            <caption id="caption01">
-              Average spend per day &equals; &pound;<span data-average-spend
-                >0</span
-              >
+            <caption id="caption01" class="sr-only">
+              Daily spend
             </caption>
             <thead>
-              <tr data-table-headings class="table-headings">
-                <th>Date</th>
-                <th>Notes</th>
-                <th class="last">&pound;</th>
-              </tr>
-            </thead>
-            <tbody data-rows class="tbody"></tbody>
-            <tfoot data-footer>
               <tr class="table-headings">
                 <td></td>
                 <th>No. of days</th>
-                <th class="last">Total</th>
+                <th class="last">Total (&pound;)</th>
               </tr>
               <tr>
                 <td></td>
                 <td data-total-days>0</td>
                 <td data-total-costs class="last">0</td>
               </tr>
-            </tfoot>
+              <tr class="table-headings">
+                <th colspan="3">Average spend per day (&pound;)</th>
+              </tr>
+              <tr>
+                <td colspan="3"><span data-average-spend>0</span></td>
+              </tr>
+              <tr class="table-headings">
+                <th colspan="3">Entries</th>
+              </tr>
+              <tr data-table-headings class="table-headings">
+                <th>Date</th>
+                <th>Notes</th>
+                <th class="last">(&pound;)</th>
+              </tr>
+            </thead>
+            <tbody data-rows class="tbody"></tbody>
           </table>
         </div>
 
