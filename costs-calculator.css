@@ -249,6 +249,8 @@ tbody tr:nth-child(even) {
 
 .entries {
     text-transform: var(--text-uppercase);
+    border-left: 0;
+    border-right: 0;
 }
 
 .costs-row {
