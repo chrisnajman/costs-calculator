@@ -7,6 +7,7 @@
     --horz-center: 0 auto;
     --text-center: center;
     --text-left: left;
+    --text-uppercase: uppercase;
     --displayGrid: grid;
     --displayFlex: flex;
 }
@@ -80,6 +81,8 @@ button:focus {
     color: rgb(33, 33, 209);
     font-weight: var(--font-normal);
     text-decoration: underline;
+    display: block;
+    margin: var(--horz-center);
 }
 
 .remove-button:hover,
@@ -235,16 +238,6 @@ td {
     text-align: var(--text-center);
 }
 
-.last {
-    text-align: var(--text-left);
-}
-
-.daily-cost-button {
-    display: var(--displayFlex);
-    justify-content: space-between;
-    gap: 1rem;
-}
-
 tbody tr:nth-child(even) {
     background-color: var(--bgColour);
 }
@@ -252,6 +245,10 @@ tbody tr:nth-child(even) {
 .table-headings {
     background-color: rgb(225, 225, 233);
     color: currentColor;
+}
+
+.entries {
+    text-transform: var(--text-uppercase);
 }
 
 .costs-row {
@@ -265,9 +262,17 @@ tbody tr:nth-child(even) {
     word-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
+    text-align: var(--text-left);
 }
 
 /** Helpers **/
+.remove-border-right {
+    border-right: 0;
+}
+.remove-border-left {
+    border-left: 0;
+}
+
 .required {
     color: red;
     font-weight: var(--font-bold);

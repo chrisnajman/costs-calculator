@@ -89,28 +89,27 @@
             </caption>
             <thead>
               <tr class="table-headings">
-                <td></td>
                 <th>No. of days</th>
-                <th class="last">Total (&pound;)</th>
+                <th>Average spend per day (&pound;)</th>
+                <th>Total (&pound;)</th>
               </tr>
               <tr>
-                <td></td>
                 <td data-total-days>0</td>
-                <td data-total-costs class="last">0</td>
+                <td><span data-average-spend>0</span></td>
+                <td data-total-costs>0</td>
               </tr>
               <tr class="table-headings">
-                <th colspan="3">Average spend per day (&pound;)</th>
+                <td class="remove-border-right"></td>
+                <th class="remove-border-left remove-border-right entries">
+                  Entries
+                </th>
+                <td class="remove-border-left"></td>
               </tr>
-              <tr>
-                <td colspan="3"><span data-average-spend>0</span></td>
-              </tr>
-              <tr class="table-headings">
-                <th colspan="3">Entries</th>
-              </tr>
+
               <tr data-table-headings class="table-headings">
                 <th>Date</th>
                 <th>Notes</th>
-                <th class="last">(&pound;)</th>
+                <th>(&pound;)</th>
               </tr>
             </thead>
             <tbody data-rows class="tbody"></tbody>
@@ -121,7 +120,7 @@
           <tr class="costs-row">
             <td data-date></td>
             <td data-notes class="notes"></td>
-            <td class="last daily-cost-button">
+            <td>
               <span data-daily-cost></span
               ><button data-button-delete class="remove-button">Delete</button>
             </td>
