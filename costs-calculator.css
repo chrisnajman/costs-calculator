@@ -62,38 +62,26 @@ button {
     border: 0;
     font-size: inherit;
     text-align: var(--text-center);
-    outline: none;
+    color: var(--textColour);
+    background: white;
+    outline: 1px solid currentColor;
 }
 
+button:hover,
 button:focus {
-    outline: 2px solid currentColor;
+    outline: 2px solid var(--textColour);
+    background-color: var(--bgColour);
 }
 
 .submit-button {
     padding: 0.5rem 1rem;
-    color: currentColor;
-    background: white;
-    outline: 1px solid currentColor;
-    border-radius: 0.5rem;
-}
-
-.submit-button:hover,
-.submit-button:focus {
-    background-color: var(--bgColour);
 }
 
 .remove-button {
-    color: rgb(33, 33, 209);
-    font-weight: var(--font-normal);
-    text-decoration: underline;
+    padding: 0.25rem 0.5rem;
     display: block;
     margin: var(--horz-center);
 }
-.remove-button:hover,
-.remove-button:focus {
-    text-decoration: none;
-}
-
 /* Page layout */
 .page-wrapper {
     min-height: 100%;
@@ -192,7 +180,8 @@ input[type="number"] {
 
 /** Table container **/
 [role="region"][aria-labelledby][tabindex] {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: scroll;
     margin: var(--horz-center);
     max-height: 18.75rem; /* 300px */
 }
@@ -222,7 +211,7 @@ th {
 }
 th,
 td {
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     text-align: var(--text-center);
 }
 tbody td {
