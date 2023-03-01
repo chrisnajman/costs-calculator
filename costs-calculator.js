@@ -7,9 +7,7 @@ const inputPence = document.querySelector("[data-input-pence]")
 const inputNotes = document.querySelector("[data-input-notes]")
 
 /** Table selectors */
-const costsTable = document.getElementById("costs-table")
 const tbodyRows = document.querySelector("[data-rows]")
-
 const totalDays = document.querySelector("[data-total-days]")
 const totalCosts = document.querySelector("[data-total-costs]")
 const averageSpend = document.querySelector("[data-average-spend]")
@@ -21,7 +19,6 @@ const LOCAL_STORAGE_PREFIX = "COSTS_GH_V1"
 const COSTS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}-data`
 
 const dailyCostsAll = []
-const LastChildArray = []
 
 costsForm.addEventListener("submit", (e) => {
   e.preventDefault()
