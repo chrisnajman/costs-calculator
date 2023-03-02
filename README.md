@@ -39,7 +39,6 @@ Note: I'm using the GBP pound symbol, but the calculator will work for any decim
 
 - ES6 (no transpilation to ES5)
 - Data is saved to local storage
-- Using a JS module for `function addGlobalEventListener`
 
 ## CSS
 
