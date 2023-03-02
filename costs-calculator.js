@@ -1,5 +1,4 @@
 "use strict"
-import addGlobalEventListener from "./modules/global-event-listener.js"
 
 /** Form selectors */
 const costsForm = document.getElementById("costs-form")
