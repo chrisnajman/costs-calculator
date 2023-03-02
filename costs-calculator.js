@@ -1,10 +1,11 @@
 "use strict"
+import addGlobalEventListener from "./modules/global-event-listener.js"
+
 /** Form selectors */
 const costsForm = document.getElementById("costs-form")
 const inputDate = document.querySelector("[data-input-date]")
 const inputPounds = document.querySelector("[data-input-pounds]")
 const inputPence = document.querySelector("[data-input-pence]")
-const inputNotes = document.querySelector("[data-input-notes]")
 
 /** Table selectors */
 const tbodyRows = document.querySelector("[data-rows]")
@@ -26,7 +27,6 @@ costsForm.addEventListener("submit", (e) => {
   const dateValue = inputDate.value
   const dateArray = dateValue.split("-")
   const dateString = dateArray.reverse().join("/")
-  const notesValue = inputNotes.value
 
   const gbp = "\u00A3"
   if (inputPounds.value === "") {
@@ -44,7 +44,6 @@ costsForm.addEventListener("submit", (e) => {
 
   const newCostsEntry = {
     date: dateString,
-    notesValue: notesValue,
     poundsPlusPence: poundsPlusPence,
     id: new Date().valueOf().toString(),
   }
@@ -56,7 +55,6 @@ costsForm.addEventListener("submit", (e) => {
   inputDate.value = ""
   inputPounds.value = 0
   inputPence.value = 0
-  inputNotes.value = ""
 })
 
 function renderCostsEntry(entry) {
@@ -66,11 +64,9 @@ function renderCostsEntry(entry) {
   costsRow.dataset.entryId = entry.id
 
   const date = templateClone.querySelector("[data-date]")
-  const notes = templateClone.querySelector("[data-notes]")
   const dailyCost = templateClone.querySelector("[data-daily-cost]")
 
   date.textContent = entry.date
-  notes.textContent = entry.notesValue
   dailyCost.textContent = entry.poundsPlusPence
 
   const totalRows = parseInt(tbodyRows.rows.length + 1)
@@ -131,7 +127,7 @@ addGlobalEventListener("click", "[data-button-delete]", (e) => {
   const parent = e.target.closest(".costs-row")
   parent.remove()
 
-  //   // Remove from local storage
+  // Remove from local storage
   const entryId = parent.dataset.entryId
   entries = entries.filter((entry) => {
     return entry.id !== entryId
@@ -150,13 +146,3 @@ addGlobalEventListener(
   },
   true
 )
-
-function addGlobalEventListener(type, selector, callback, option = false) {
-  document.addEventListener(
-    type,
-    (e) => {
-      if (e.target.matches(selector)) callback(e)
-    },
-    option
-  )
-}

@@ -15,28 +15,16 @@
     <link rel="stylesheet" href="costs-calculator.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-    <script src="costs-calculator.js" defer></script>
+    <script src="costs-calculator.js" type="module"></script>
   </head>
   <body>
     <div class="page-wrapper">
       <header class="heading-main">
-        <h1 class="page-heading">&pound; Costs Calculator</h1>
-        <ul>
-          <li>Entries can be rearranged, if required (drag and drop).</li>
-          <li>
-            Entries are saved to local storage.
-            <ul>
-              <li>Deleting an entry will remove it from local storage.</li>
-            </ul>
-          </li>
-          <li>
-            If you don't spend anything, just select the date and submit the
-            form.
-            <ul>
-              <li>This will ensure that the correct average is calculated.</li>
-            </ul>
-          </li>
-        </ul>
+        <h1 class="page-heading">V6 &pound; Costs Calculator</h1>
+        <p>
+          Record your daily spend and calculate the average over a number of
+          days.
+        </p>
       </header>
       <main class="content-main">
         <form id="costs-form" class="costs-form">
@@ -45,7 +33,7 @@
             <input type="date" name="date" id="date" required data-input-date />
           </div>
           <fieldset>
-            <legend class="sr-only">Money spent</legend>
+            <legend class="sr-only">Daily spend</legend>
             <div class="number">
               <label for="pounds">&pound;</label>
               <input
@@ -75,58 +63,90 @@
             </div>
           </fieldset>
           <div>
-            <label for="notes">Notes</label>
-            <textarea name="notes" id="notes" data-input-notes></textarea>
-          </div>
-          <div>
             <button class="submit-button">Submit</button>
           </div>
         </form>
-        <div role="region" aria-labelledby="caption01" tabindex="0">
-          <table id="costs-table">
-            <caption id="caption01" class="sr-only">
-              Daily and average spend
-            </caption>
-            <thead>
-              <tr class="table-headings">
-                <th>No. of days</th>
-                <th>Total</th>
-                <th>Average</th>
-              </tr>
-              <tr>
-                <td data-total-days>0</td>
-                <td>&pound;<span data-total-costs>0</span></td>
-                <td>&pound;<span data-average-spend>0</span></td>
-              </tr>
-              <tr class="table-headings table-heading-entries">
-                <td></td>
-                <th class="entries">Entries</th>
-                <td></td>
-              </tr>
-              <tr data-table-headings class="table-headings">
-                <th>Date</th>
-                <th>Notes</th>
-                <th>Spend</th>
-              </tr>
-            </thead>
-            <tbody data-rows class="tbody"></tbody>
-          </table>
+        <div class="tables-wrapper">
+          <h2>Results</h2>
+          <div role="region" aria-labelledby="captionDailySpend" tabindex="0">
+            <table class="results">
+              <caption id="captionDailySpend" class="sr-only">
+                Average spend
+              </caption>
+              <thead>
+                <tr class="table-headings">
+                  <th>No. of days</th>
+                  <th>Total</th>
+                  <th>Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-total-days>0</td>
+                  <td>&pound;<span data-total-costs>0</span></td>
+                  <td>&pound;<span data-average-spend>0</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>Entries</h2>
+          <div role="region" aria-labelledby="captionEntries" tabindex="0">
+            <table id="costs-table">
+              <caption id="captionEntries" class="sr-only">
+                Daily spend
+              </caption>
+              <thead>
+                <tr data-table-headings class="table-headings">
+                  <th>Date</th>
+                  <th>Spend</th>
+                  <th>
+                    <span class="sr-only">Delete</span
+                    ><img
+                      src="./delete-icon-light.png"
+                      alt=""
+                      width="25"
+                      height="25"
+                    />
+                  </th>
+                </tr>
+              </thead>
+              <tbody data-rows class="tbody"></tbody>
+            </table>
+          </div>
         </div>
         <template id="costs-template">
           <tr class="costs-row">
             <td data-date></td>
-            <td data-notes class="notes"></td>
-            <td>
+            <td role="cell">
               <span class="daily-cost"
-                >&pound;<span data-daily-cost></span></span
-              ><button data-button-delete class="remove-button">Delete</button>
+                >&pound;<span data-daily-cost></span
+              ></span>
+            </td>
+            <td>
+              <button data-button-delete class="remove-button">Delete</button>
             </td>
           </tr>
         </template>
       </main>
       <footer class="page-footer">
         <ul>
+          <li>Entries can be rearranged, if required (drag and drop).</li>
           <li>
+            Entries are saved to local storage.
+            <ul>
+              <li>Deleting an entry will remove it from local storage.</li>
+            </ul>
+          </li>
+          <li>
+            If you don't spend anything, just select the date and submit the
+            form.
+            <ul>
+              <li>This will ensure that the correct average is calculated.</li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="page-footer-links">
+          <li role="listitem">
             <a
               href="https://github.com/chrisnajman/costs-calculator"
               target="_blank"
