@@ -95,7 +95,7 @@ button:focus {
     margin: var(--horz-center);
 }
 
-/* Page layout */
+/* Page layout
 .page-wrapper {
     min-height: 100%;
     display: var(--displayGrid);
@@ -113,6 +113,23 @@ button:focus {
     background-color: white;
     box-shadow: 0 0 0 100vmax white;
     clip-path: inset(0 -100vmax);
+} */
+
+/* Page layout */
+.page-wrapper {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: var(--displayGrid);
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem;
+}
+.content-main {
+    display: var(--displayFlex);
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 2rem;
+    margin: auto;
+    padding: 2rem 0;
 }
 
 .page-heading {
