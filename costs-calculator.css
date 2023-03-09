@@ -21,10 +21,6 @@
 html {
     overflow-y: scroll;
 }
-html,
-body {
-    height: 100%;
-}
 
 body {
     font-size: 1rem;
@@ -80,7 +76,7 @@ button {
 }
 
 button:hover,
-button:focus {
+button:focus-visible {
     outline: 2px solid var(--textColour);
     background-color: var(--bgColour);
 }
@@ -95,26 +91,6 @@ button:focus {
     margin: var(--horz-center);
 }
 
-/* Page layout
-.page-wrapper {
-    min-height: 100%;
-    display: var(--displayGrid);
-    grid-template-rows: auto 1fr auto;
-    gap: 2rem;
-}
-.content-main {
-    display: var(--displayFlex);
-    flex-wrap: wrap;
-    align-items: start;
-    gap: 2rem;
-    width: fit-content;
-    margin: auto;
-    padding: 6rem 0;
-    background-color: white;
-    box-shadow: 0 0 0 100vmax white;
-    clip-path: inset(0 -100vmax);
-} */
-
 /* Page layout */
 .page-wrapper {
     min-height: 100vh;
@@ -126,7 +102,6 @@ button:focus {
 .content-main {
     display: var(--displayFlex);
     flex-wrap: wrap;
-    align-items: start;
     gap: 2rem;
     margin: auto;
     padding: 2rem 0;
@@ -222,36 +197,32 @@ input[type="number"] {
     font-weight: var(--font-bold);
 }
 
-/** Entries table container **/
-[role="region"][aria-labelledby][tabindex] {
-    overflow: auto;
-    margin: var(--horz-center);
-    max-height: 18.75rem; /* 300px */
-}
-@media screen and (min-width: 359px) {
-    [role="region"][aria-labelledby][tabindex] {
-        max-height: 25rem; /* 400px */
-    }
-}
-@media screen and (min-width: 767px) {
-    [role="region"][aria-labelledby][tabindex] {
-        max-height: 37.5rem; /* 600px */
-    }
-}
-@media screen and (min-width: 880px) {
-    [role="region"][aria-labelledby][tabindex] {
-        margin-left: 0;
-    }
-}
-
+/** Tables**/
 .tables-wrapper {
     margin: var(--horz-center);
+    display: var(--displayFlex);
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-container {
+    width: fit-content;
+    border: 1px solid currentColor;
+}
+
+.results-table-container {
+    margin-bottom: 1.25rem;
+}
+
+.costs-table-container {
+    overflow: auto;
+    max-height: 15rem; /* 240px */
 }
 
 table {
     border-spacing: 0;
     background-color: white;
-    border: 1px solid currentColor;
+    border: 0;
 }
 th {
     font-weight: var(--font-normal);
@@ -291,11 +262,6 @@ tbody tr:nth-child(even) {
     display: block;
 }
 
-/* results table */
-.results {
-    margin-bottom: 1.25rem;
-}
-
 /* screenreader only */
 .sr-only {
     position: absolute;
@@ -306,4 +272,11 @@ tbody tr:nth-child(even) {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+/* Position sticky (used on costs-table thead */
+.sticky {
+    z-index: 1;
+    position: sticky;
+    top: 0;
 }

@@ -32,8 +32,13 @@ Note: I'm using the GBP pound symbol, but the calculator will work for any decim
 ## HTML
 
 - `template` used for dynamic (`table`) rows.
-- The table container has a `max-height`. When this is reached, scrollbars appear.
-- The table container will start to scroll horizontally at around 420px width. I haven't found a solution for very small screens.
+
+The 'results' table container:
+
+- has a `max-height`. When this is reached, vertical scrollbars appear.
+- The results table container will start to scroll horizontally at around 420px width.
+
+The 'results' table has a 'sticky' thead, so the table headers (`th`s) will always be on top when scrolling.
 
 ## Javascript
 

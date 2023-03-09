@@ -68,8 +68,13 @@
         </form>
         <div class="tables-wrapper">
           <h2>Results</h2>
-          <div role="region" aria-labelledby="captionDailySpend" tabindex="0">
-            <table class="results">
+          <div
+            role="region"
+            aria-labelledby="captionDailySpend"
+            tabindex="0"
+            class="table-container results-table-container"
+          >
+            <table>
               <caption id="captionDailySpend" class="sr-only">
                 Average spend
               </caption>
@@ -90,12 +95,17 @@
             </table>
           </div>
           <h2>Entries</h2>
-          <div role="region" aria-labelledby="captionEntries" tabindex="0">
+          <div
+            role="region"
+            aria-labelledby="captionEntries"
+            tabindex="0"
+            class="table-container costs-table-container"
+          >
             <table id="costs-table">
               <caption id="captionEntries" class="sr-only">
                 Daily spend
               </caption>
-              <thead>
+              <thead class="sticky">
                 <tr data-table-headings class="table-headings">
                   <th>Date</th>
                   <th>Spend</th>
