@@ -101,10 +101,17 @@ button:focus-visible {
 }
 .content-main {
     display: var(--displayFlex);
+    align-items: start;
     flex-wrap: wrap;
     gap: 2rem;
     margin: auto;
     padding: 2rem 0;
+}
+@media screen and (min-width: 610px) {
+    .content-main {
+        background: white;
+        padding: 2rem;
+    }
 }
 
 .page-heading {
