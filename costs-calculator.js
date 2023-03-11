@@ -66,7 +66,7 @@ function renderCostsEntry(entry) {
   const dailyCost = templateClone.querySelector("[data-daily-cost]")
 
   date.textContent = entry.date
-  dailyCost.textContent = entry.poundsPlusPence
+  dailyCost.textContent = entry.poundsPlusPence.toFixed(2)
 
   const totalRows = parseInt(tbodyRows.rows.length + 1)
   totalDays.textContent = totalRows

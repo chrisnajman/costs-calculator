@@ -48,7 +48,7 @@
               />
             </div>
             <div class="number">
-              <label for="pence">Pence</label>
+              <label for="pence">.<span class="sr-only"> Pence</span></label>
               <input
                 type="number"
                 name="pence"
@@ -62,6 +62,7 @@
               />
             </div>
           </fieldset>
+
           <div>
             <button class="submit-button">Submit</button>
           </div>
@@ -81,15 +82,19 @@
               <thead>
                 <tr class="table-headings">
                   <th>No. of days</th>
-                  <th>Total</th>
-                  <th>Average</th>
+                  <th>Total (&pound;)</th>
+                  <th>Average (&pound;)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td data-total-days>0</td>
-                  <td>&pound;<span data-total-costs>0</span></td>
-                  <td>&pound;<span data-average-spend>0</span></td>
+                  <td>
+                    <span data-total-costs>0.00</span>
+                  </td>
+                  <td>
+                    <span data-average-spend>0.00</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -108,7 +113,7 @@
               <thead class="sticky">
                 <tr data-table-headings class="table-headings">
                   <th>Date</th>
-                  <th>Spend</th>
+                  <th>Spend (&pound;)</th>
                   <th>
                     <span class="sr-only">Delete</span
                     ><img
@@ -124,14 +129,11 @@
             </table>
           </div>
         </div>
-
         <template id="costs-template">
           <tr class="costs-row">
             <td data-date></td>
-            <td role="cell">
-              <span class="daily-cost"
-                >&pound;<span data-daily-cost></span
-              ></span>
+            <td>
+              <span class="daily-cost"><span data-daily-cost>0.00</span></span>
             </td>
             <td>
               <button data-button-delete class="remove-button">Delete</button>
