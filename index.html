@@ -20,7 +20,20 @@
   <body>
     <div class="page-wrapper">
       <header class="heading-main">
-        <h1 class="page-heading">&pound; Costs Calculator</h1>
+        <h1 class="page-heading">
+          <img src="./logo.png" alt="" />Costs Calculator
+        </h1>
+        <form class="currency-selector">
+          <label for="currency-select">Choose currency:</label>
+          <select id="currency-select" name="currency-select">
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="JPY">JPY</option>
+            <option value="CNY">CNY</option>
+            <option value="INR">INR</option>
+          </select>
+        </form>
         <p>
           Record your daily spend and calculate the average over a number of
           days.
@@ -35,7 +48,11 @@
           <fieldset>
             <legend class="sr-only">Daily spend</legend>
             <div class="number">
-              <label for="pounds">&pound;</label>
+              <label for="pounds"
+                ><span data-selected-currency class="currency-symbol"
+                  >&pound;</span
+                ></label
+              >
               <input
                 type="number"
                 name="pounds"
@@ -82,8 +99,18 @@
               <thead>
                 <tr class="table-headings">
                   <th>No. of days</th>
-                  <th>Total (&pound;)</th>
-                  <th>Average (&pound;)</th>
+                  <th>
+                    Total (<span data-selected-currency class="currency-symbol"
+                      >&pound;</span
+                    >)
+                  </th>
+                  <th>
+                    Average (<span
+                      data-selected-currency
+                      class="currency-symbol"
+                      >&pound;</span
+                    >)
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -113,7 +140,11 @@
               <thead class="sticky">
                 <tr data-table-headings class="table-headings">
                   <th>Date</th>
-                  <th>Spend (&pound;)</th>
+                  <th>
+                    Spend (<span data-selected-currency class="currency-symbol"
+                      >&pound;</span
+                    >)
+                  </th>
                   <th>
                     <span class="sr-only">Delete</span
                     ><img

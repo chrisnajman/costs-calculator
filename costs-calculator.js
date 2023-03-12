@@ -1,10 +1,28 @@
 "use strict"
 
-/** Form selectors */
+/** Costs form selectors */
 const costsForm = document.getElementById("costs-form")
 const inputDate = document.querySelector("[data-input-date]")
 const inputPounds = document.querySelector("[data-input-pounds]")
 const inputPence = document.querySelector("[data-input-pence]")
+
+/** Costs Local Storage */
+const LOCAL_STORAGE_PREFIX = "COSTS_GH"
+const COSTS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}-data`
+
+/** Currency selectors */
+const currencySelect = document.getElementById("currency-select")
+const selectedCurrency = document.querySelectorAll("[data-selected-currency]")
+const gbp = "\u00A3",
+  eur = "\u20AC",
+  usd = "\u0024",
+  jpy = "\u00A5",
+  cny = "\u5143",
+  inr = "\u20A8"
+
+/** Currency Local Storage */
+const LOCAL_STORAGE_PREFIX2 = "CURRENCY-GH"
+const CURRENCY_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX2}-data`
 
 /** Table selectors */
 const tbodyRows = document.querySelector("[data-rows]")
@@ -13,12 +31,6 @@ const totalCosts = document.querySelector("[data-total-costs]")
 const averageSpend = document.querySelector("[data-average-spend]")
 /* tr template */
 const costsTemplate = document.getElementById("costs-template")
-
-/** Local Storage */
-const LOCAL_STORAGE_PREFIX = "COSTS_GH_V1"
-const COSTS_STORAGE_KEY = `${LOCAL_STORAGE_PREFIX}-data`
-
-const dailyCostsAll = []
 
 costsForm.addEventListener("submit", (e) => {
   e.preventDefault()
@@ -56,6 +68,7 @@ costsForm.addEventListener("submit", (e) => {
   inputPence.value = 0
 })
 
+const dailyCostsAll = []
 function renderCostsEntry(entry) {
   const templateClone = costsTemplate.content.cloneNode(true)
   const costsRow = templateClone.querySelector(".costs-row")
@@ -94,31 +107,6 @@ function loadentries() {
   return JSON.parse(entriesString) || []
 }
 
-// Sortable drag and drop
-const tbody = document.querySelector(".tbody")
-const sortable = Sortable.create(tbody, {
-  group: "SORTED-DAILY-COSTS",
-  store: {
-    /**
-     * Get the order of elements. Called once during initialization.
-     * @param   {Sortable}  sortable
-     * @returns {Array}
-     */
-    get: function (sortable) {
-      const order = localStorage.getItem(sortable.options.group.name)
-      return order ? order.split("|") : []
-    },
-    /**
-     * Save the order of elements. Called onEnd (when the item is dropped).
-     * @param {Sortable}  sortable
-     */
-    set: function (sortable) {
-      const order = sortable.toArray()
-      localStorage.setItem(sortable.options.group.name, order.join("|"))
-    },
-  },
-})
-
 /** Event listeners */
 // Delete button
 addGlobalEventListener("click", "[data-button-delete]", (e) => {
@@ -146,6 +134,49 @@ addGlobalEventListener(
   true
 )
 
+/** Currency select */
+// Load saved currency and selection from localStorage
+const storedCurrency = localStorage.getItem(CURRENCY_STORAGE_KEY)
+if (storedCurrency) {
+  currencySelect.value = storedCurrency
+  updateSelectedCurrency(storedCurrency)
+}
+
+currencySelect.addEventListener("change", (e) => {
+  const selectedValue = e.target.value
+  updateSelectedCurrency(selectedValue)
+  // Save selected currency to localStorage
+  localStorage.setItem(CURRENCY_STORAGE_KEY, selectedValue)
+})
+
+function updateSelectedCurrency(currencySymbol) {
+  selectedCurrency.forEach((currency) => {
+    switch (currencySymbol) {
+      case "GBP":
+        currency.textContent = `${gbp}`
+        break
+      case "EUR":
+        currency.textContent = `${eur}`
+        break
+      case "USD":
+        currency.textContent = `${usd}`
+        break
+      case "JPY":
+        currency.textContent = `${jpy}`
+        break
+      case "CNY":
+        currency.textContent = `${cny}`
+        break
+      case "INR":
+        currency.textContent = `${inr}`
+        break
+      default:
+      // Do nothing.
+    }
+  })
+}
+
+/** Helper functions */
 function addGlobalEventListener(type, selector, callback, option = false) {
   document.addEventListener(
     type,
@@ -155,3 +186,28 @@ function addGlobalEventListener(type, selector, callback, option = false) {
     option
   )
 }
+
+// Sortable drag and drop
+const tbody = document.querySelector(".tbody")
+const sortable = Sortable.create(tbody, {
+  group: "SORTED-DAILY-COSTS",
+  store: {
+    /**
+     * Get the order of elements. Called once during initialization.
+     * @param   {Sortable}  sortable
+     * @returns {Array}
+     */
+    get: function (sortable) {
+      const order = localStorage.getItem(sortable.options.group.name)
+      return order ? order.split("|") : []
+    },
+    /**
+     * Save the order of elements. Called onEnd (when the item is dropped).
+     * @param {Sortable}  sortable
+     */
+    set: function (sortable) {
+      const order = sortable.toArray()
+      localStorage.setItem(sortable.options.group.name, order.join("|"))
+    },
+  },
+})

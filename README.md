@@ -29,6 +29,14 @@ This is so that:
 
 Note: I'm using the GBP pound symbol, but the calculator will work for any decimal-based currency.
 
+### Currency selector
+
+I've added a currency selector which prints a currency symbol to the form number inputs and the table headers.
+
+This is somewhat cosmetic, as the results will be the same whichever currency is chosen.
+
+The chosen currency will be saved to local storage.
+
 ## HTML
 
 - `template` used for dynamic (`table`) rows.

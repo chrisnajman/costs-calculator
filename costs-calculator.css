@@ -119,6 +119,17 @@ button:focus-visible {
     font-weight: var(--font-bold);
     text-align: var(--text-center);
 }
+.page-heading img {
+    width: 2.5rem;
+    vertical-align: middle;
+    display: inline;
+    margin-right: 0.75rem;
+    /* 
+        Changes image black to --textColour: rgb(9, 9, 70); 
+        See: https://codepen.io/sosuke/pen/Pjoqqp
+    */
+    filter: invert(7%) sepia(38%) saturate(5257%) hue-rotate(233deg) brightness(98%) contrast(111%);
+}
 
 .heading-main p {
     margin: var(--horz-center);
@@ -153,7 +164,7 @@ button:focus-visible {
     text-align: var(--text-center);
 }
 
-/* Form */
+/* Forms */
 .costs-form {
     display: var(--displayFlex);
     flex-direction: column;
@@ -202,6 +213,15 @@ input[type="number"] {
 .required {
     color: red;
     font-weight: var(--font-bold);
+}
+
+.currency-selector {
+    width: fit-content;
+    margin: var(--horz-center);
+    margin-bottom: 1.5rem;
+}
+.currency-symbol {
+    font-weight: normal;
 }
 
 /** Tables**/
