@@ -136,11 +136,10 @@ addGlobalEventListener(
 
 /** Currency select */
 // Load saved currency and selection from localStorage
-const storedCurrency = localStorage.getItem(CURRENCY_STORAGE_KEY)
-if (storedCurrency) {
-  currencySelect.value = storedCurrency
-  updateSelectedCurrency(storedCurrency)
-}
+// GBP is default value
+const storedCurrency = localStorage.getItem(CURRENCY_STORAGE_KEY) || "GBP"
+currencySelect.value = storedCurrency
+updateSelectedCurrency(storedCurrency)
 
 currencySelect.addEventListener("change", (e) => {
   const selectedValue = e.target.value
